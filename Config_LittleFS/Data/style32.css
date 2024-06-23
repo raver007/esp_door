@@ -1,0 +1,111 @@
+body {
+	font-family: sans-serif;
+	background-color: #ffffff;
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+	background-image: url("kandou.png");
+	background-position: top left;
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-attachment: fixed;
+}
+h1,h2 {
+	color: #e1e1e1;
+	text-shadow: 2px 2px 2px black;
+}
+li {
+	background-color: #7cfc00;
+	list-style-type: none;
+	margin-bottom: 10px;
+	padding-right: 5px;
+	border-top: 3px solid #7cfc00;
+	border-bottom: 3px solid #7cfc00;
+	box-shadow: 5px 5px 5px #000000b3;
+}
+li a:first-child, li b {
+	background-color: #ff4500;
+	font-weight: bold;
+	color: white;
+	text-decoration: none;
+	padding: 0 5px;
+	border-top: 3.2px solid #ff4500;
+	border-bottom: 3.6px solid #ff4500;
+	text-shadow: 2px 2px 1px black;
+	cursor:pointer;
+}
+li strong {
+	color: red;
+}
+input {
+	height: 35px;
+	font-size: 13px;
+}
+h1+main {
+	display: flex;
+}
+aside {
+	display: flex;
+	flex-direction: column;
+	padding: 0.2em;
+}
+#left {
+	align-items: flex-end;
+	text-shadow: 1px 1px 2px #757474;
+}
+.note {
+	background-color: salmon;
+	padding: 0.5em;
+	margin-top: 1em;
+	text-align: center;
+	max-width: 320px;
+	border-radius: 0.5em;
+}
+nav {
+	display: flex;
+	align-items: baseline;
+	justify-content: space-between;
+}
+.no {
+	display: none;
+}
+#cr {
+	font-weight: bold;
+	cursor:pointer;
+	font-size: 1.5em;
+}
+#up {
+	width: auto; 
+}
+button {
+	width: 130px;
+	height: 40px;
+	font-size: 16px;
+	margin-top: 1em;
+	cursor: pointer;
+	box-shadow: 5px 5px 5px #000000b3;
+}
+div button {
+	background-color: #adff2f;
+}
+form [title] {
+	background-color: silver;
+	font-size: 16px;
+	width: 125px;
+}
+form:nth-of-type(2) {
+	margin-bottom: 1em;
+}
+[name="group"] {
+	display: none;
+}
+[name="group"] + label {
+	font-size: 1.5em;
+	margin-right: 5px;
+}
+[name="group"] + label::before {
+	content: "\002610";
+}	
+[name="group"]:checked + label::before {
+	content: '\002611\0027A5';
+}

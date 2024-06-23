@@ -1,0 +1,50 @@
+<!DOCTYPE HTML> 
+<html lang="de">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="style32.css">
+    <title>ESP32 Input</title>
+	<style>
+	form {
+	  display: flex;
+	  flex-flow: column;
+	  align-items: center;
+	}
+	label {
+	  padding-top: 1.5em;
+	}
+	input {
+	  appearance: textfield;
+	}
+	</style>
+    <script>
+	  window.addEventListener('DOMContentLoaded', () => {
+        document.querySelector('button').addEventListener('click', () => {
+		  let fd = new FormData();
+		  document.querySelectorAll('input').forEach(n => {
+		    if (n.checkValidity() && n.value != '') fd.append(n.name, n.value);
+		  });
+		  sendEsp(fd);
+        });
+	  }, sendEsp());
+      async function sendEsp(data) {
+	    let resp = await fetch('/listUser', {method: 'POST', body: data});
+		let obj = await resp.json();
+		let buf = '';
+		for (var key in obj) {
+		  buf += String.raw`<label>${key}		<input type="text" name="${key}" value="${obj[key]}"></label>`;
+		}
+		document.querySelector('form').innerHTML = buf;
+      }
+    </script>
+  </head>
+  <body>
+    <h2><br>User/Card Manager</h2>
+	<form>
+	</form>
+	<div>
+ <button class="button">Senden</button>
+	</div>
+  </body>
+</html>

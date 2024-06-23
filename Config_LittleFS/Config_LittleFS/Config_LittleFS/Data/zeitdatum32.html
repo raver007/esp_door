@@ -1,0 +1,53 @@
+!DOCTYPE HTML> <!-- For more information visit: https://fipsok.de -->
+<html lang="de">
+  <head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="style32.css">
+	<title>Uhrzeit Datum</title>
+	<script>
+	  function renew() {
+		fetch('/zeit').then(function (response) {
+		  return response.json();
+		}).then(function (text) {
+		  var result = text.split(/\s/);
+		  document.querySelector('#datum').innerHTML = result[0];
+		  document.querySelector('#zeit').innerHTML = result[1];
+		});
+	  }
+	  document.addEventListener('DOMContentLoaded', renew);
+	  setInterval(renew, 1000);
+	</script>
+	<style>
+	  body {
+		padding: .5em;
+		font-size: 3.2em;
+	  }
+	  main {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		background-color: black;
+		padding: .5em;
+		border: .15em solid #909294;
+		box-shadow: .3rem .4rem .4rem #5a5a5b;
+		border-radius: .2em;
+	  }
+	  span {
+		color: #00ff05;
+		letter-spacing: .1em;
+		font-weight: bold
+	  }
+	  #datum {
+		font-size: .7em;
+		margin-top: .5em;
+	  }
+	</style>
+  </head>
+  <body>
+	<main>
+	  <span id='zeit'></span>
+	  <span id='datum'></span>
+	</main>
+  </body>
+</html>
